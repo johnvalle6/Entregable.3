@@ -1,0 +1,101 @@
+<center>
+  <div class="row">
+    <img class="rounded-circle mx-auto d-block logo m-4" src="/img/16.jpg" alt="Logo">
+    {{#each tasks}}
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h4>Reserva Realizada para: </h4>
+          <h4 class="card-title d-flex justify-content-between align-items-center">
+            Nombre:{{ Nombre }} <a href="/reserve/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+          </h4>
+          <p>Apellido: {{ Apellido }}</p>
+          <p>Tipo Documento: {{  tipodocumento }}</p>
+          <p>N° Documento: {{ Cedula }}</p>
+          <p>Teléfono: {{ Telefono }}</p>
+          <p>habitacion: {{ habitacion }}</p>
+          <p>para: {{ personas }} personas</p>
+          <p>Desde: {{ ingreso }}</p>
+          <p>hasta: {{ salida }}</p>
+
+
+          <!-- DELETE REQUEST -->
+          <form action="/reserve/delete/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+</center>
+
+
+
+{{else}}
+
+<div class="card mx-auto">
+  <div class="card-body">
+    <center>
+      <h1>Hello </h1>
+      <h2>{{user.name}}</h2>
+      <p clsss="lead">look for your reserve</p>
+    </center>
+    <a href="/reserve/add" class="btn btn-success btn-block">reserve now</a>
+  </div>
+</div>
+
+{{!-- carrusel --}}
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-12">
+
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/bq-can-picafort-piscina-1.jpg" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="img/descarga (1).jpg" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="img/roc-doblemar-exterior-73543c0.jpg" alt="">
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $('.carousel').carousel({
+    interval: 8000,
+    pause: true,
+    wrap: false
+  });
+</script>
+{{/each}}
+</div>

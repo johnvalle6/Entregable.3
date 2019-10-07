@@ -1,0 +1,97 @@
+<center>
+  <h2>Reserva</h2>
+</center>
+<center>
+  <div class="container">
+
+    <form action="/reserve/new-reserve" method="POST">
+      <div class="row">
+        <div class="col">
+
+          <div class="form-group">
+            <input type="text" name="Nombre" placeholder=" Nombre" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="Apellido" placeholder="Apellido" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <table class="table table-bordered table-hover">
+              <h5>Seleccione tipo de documento</h5>
+              <select name="tipodocumento">
+                <option>CC</option>
+                <option>Pasaporte</option>
+                <option selected>cedulaExtr</option>
+              </select>
+            </table>
+          </div>
+
+          <div class="form-group">
+            <textarea name="Cedula" placeholder=" # Documento" class="form-control" cols="80"></textarea>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="Telefono" placeholder=" Telefono" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" style="margin-top: 10px">
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="col">
+                <H5>Seleccione habitación</H5>
+                <select name="habitacion">
+                  <option>sencilla</option>
+
+                  <option>doble</option>
+
+                  <option selected> Vip</option>
+                </select>
+              </div>
+              <div class="col">
+                Fecha ingreso: <input type="date" name="ingreso" step="1" min="date" max="2020-12-31" value="">
+              </div>
+              <div class="col">
+                Fecha salida: <input type="date" name="salida" step="1" min="date" max="2020-12-31" value="">
+              </div>
+              <input name="personas" placeholder=" # de Personas" type="number" class="form-control">
+              <button type="submit" class="btn btn-primary btn-block">verificar</button>
+
+            </div>
+          </div>
+        </div>
+    </form>
+  </div>
+
+</center>
+
+<center>
+
+  <div class="container">
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <h3>Disponibilidad</h3>
+        <thead>
+          <tr>
+            <th>Hab.sencilla</th>
+            <th>Hab.dobles</th>
+            <th>Hab.vip</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>{{sencilla}}</td>
+            <td>{{doble}}</td>
+            <td>{{vip}}</td>
+
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+</center>
